@@ -1,16 +1,11 @@
 """
 analyze.py — [Step 5] 분석 및 시각화.
 
-probe.py가 만든 metrics.csv 와 캐시된 feature를 이용해
-proposal의 핵심 figure들을 생성한다.
 
 생성물 (results/figures/):
   fig1_layerwise_curve.png   — 메인: layer별 AUROC 곡선 (모델별 라인)
   fig3_cka_heatmap.png       — 모델 간 best-layer feature CKA 유사도
   fig4_tsne.png              — best vs worst layer feature t-SNE
-
-(Figure 2 optimal-layer 표, Figure 5 attention map,
- failure case는 별도 함수/노트북에서 다룬다. 아래 stub 참고.)
 
 실행:
     python analyze.py
