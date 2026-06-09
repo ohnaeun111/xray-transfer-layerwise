@@ -1,19 +1,3 @@
-"""
-models.py — 3개 backbone을 통일된 인터페이스로 wrapping.
-
-핵심 과제:
-  세 모델(ImageNet/timm, DINOv2/timm, DINOv3/hf)은 내부 구조와 출력 형식이
-  조금씩 다르다. 이 모듈은 그 차이를 흡수하여, 어떤 모델이든
-      feats = wrapper.extract(x)   # -> {"L3": [B,768], "L6": ..., ...}
-  형태로 중간 layer CLS token을 돌려준다.
-
-주의점:
-  - timm ViT는 forward_features 가 [B, num_tokens, dim]을 주고,
-    token 0 이 CLS. timm은 get_intermediate_layers 를 지원한다.
-  - DINOv3 (HF)는 출력 토큰이 [CLS, register×4, patch×N] 순서.
-    register token 4개를 건너뛰어야 하지만 CLS(index 0)만 쓰면 무관.
-  - 모든 모델은 frozen (eval + no_grad).
-"""
 import torch
 import torch.nn as nn
 
