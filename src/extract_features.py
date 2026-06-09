@@ -1,19 +1,4 @@
-"""
-extract_features.py — [Step 3] 가장 무거운 단계.
 
-각 backbone으로 train/test 전체 이미지를 한 번 forward 하면서
-L3/L6/L9/L12 의 CLS token을 모두 뽑아 디스크에 캐싱한다.
-
-한 번 캐싱해두면 이후 linear probing(probe.py)과 분석(analyze.py)은
-backbone 없이 가벼운 텐서 연산만으로 끝난다.
-
-출력: cache/{model_key}_{split}.pt
-  형식: {"features": {"L3": Tensor[N,D], ...}, "labels": Tensor[N]}
-
-실행:
-    python extract_features.py            # config의 모든 모델, train+test
-    python extract_features.py --models dinov2 --splits test   # 일부만
-"""
 import argparse
 import torch
 from tqdm import tqdm
