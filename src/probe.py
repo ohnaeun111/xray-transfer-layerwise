@@ -1,22 +1,4 @@
-"""
-probe.py — [Step 4] Linear probing.
 
-캐시된 feature를 읽어 (model × layer × seed) 마다 독립적인
-linear classifier를 학습하고 평가 지표를 계산한다.
-
-핵심 설계:
-  - 각 layer feature로 "독립적인" classifier를 따로 학습한다.
-    (그래야 layer 간 공정한 비교가 됨)
-  - classifier는 PyTorch Linear(D→2) + AdamW + class-weighted CE.
-    (proposal과 일관. sklearn LogisticRegression도 옵션으로 둠)
-  - feature는 학습 전 표준화(StandardScaler, train 통계로 fit).
-
-출력: results/metrics.csv  (model, layer, seed, AUROC, F1, Sens, Spec, Acc)
-
-실행:
-    python probe.py
-    python probe.py --classifier sklearn   # sklearn 백엔드 사용
-"""
 import argparse
 import numpy as np
 import pandas as pd
