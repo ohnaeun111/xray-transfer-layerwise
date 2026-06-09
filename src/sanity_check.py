@@ -1,20 +1,3 @@
-"""
-sanity_check.py — [Day 1] 가장 작은 규모로 파이프라인 전체를 검증.
-
-목적: 본격 실험 전에 "데이터 → 모델 → feature → 분류 → AUROC"가
-끝까지 돌아가는지, 그리고 AUROC가 말이 되는 값(>=0.85)인지 확인.
-
-검증 항목:
-  1. 데이터 로딩 + 클래스 매핑
-  2. 모델 로드 + 중간 layer 추출 shape
-  3. 작은 subset으로 L12 feature 추출
-  4. linear probing → test AUROC
-  5. AUROC >= 0.85 인지 (실패 시 원인 힌트 출력)
-
-실행:
-    python sanity_check.py                 # config의 첫 모델로
-    python sanity_check.py --model dinov2
-"""
 import argparse
 import numpy as np
 import torch
