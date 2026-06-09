@@ -1,11 +1,4 @@
-"""
-config.py — 모든 실험 설정을 한 곳에서 관리.
 
-이 파일만 고치면 실험 전체가 바뀝니다. 특히:
-- DATA_ROOT: Kaggle chest_xray 폴더 경로 (★ 본인 환경에 맞게 수정)
-- MODELS: 비교할 backbone들. DINOv3 승인 전에는 dinov3를 주석 처리하고,
-  승인 후 주석만 풀면 됩니다.
-"""
 import os
 from pathlib import Path
 
